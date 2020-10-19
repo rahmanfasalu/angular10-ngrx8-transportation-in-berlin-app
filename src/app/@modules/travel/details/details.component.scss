@@ -1,0 +1,44 @@
+.details-wrapper {
+  padding-top: 10px;
+  .details-title {
+  }
+
+  .info-data {
+    height: 64px;
+    width: 100%;
+    border: 1px solid #c8c8c8;
+    padding: 19px 12px;
+    background-color: #fff;
+    -webkit-appearance: none;
+    border-radius: 2px;
+    margin: 10px 0;
+    .title {
+      .name {
+        float: left;
+        span {
+          color: #c8c8c8;
+        }
+      }
+      .info-icon {
+        float: right;
+        color: #e60000;
+        .line-name {
+          padding: 2px;
+          background: #ec700c;
+          color: #fff;
+          margin: 0 10px;
+          border-radius: 2px;
+          min-width: 45px;
+          float: left;
+          text-align: center;
+        }
+      }
+    }
+    .time {
+      .ng-fa-icon {
+        color: rgb(11, 145, 239);
+        margin-left: 10px;
+      }
+    }
+  }
+}

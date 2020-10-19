@@ -1,0 +1,109 @@
+.travel-planner-wrapper {
+  width: 50%;
+  float: left;
+  .travel-planner {
+    margin-top: 10px;
+    .planner-wrapper {
+      .fav-save {
+        float: right;
+        margin: 10px 0;
+        input {
+          width: 26px;
+          height: 20px;
+        }
+      }
+      .planner-input-wrapper {
+        width: 100%;
+        float: left;
+        height: 64px;
+        border: 1px solid #c8c8c8;
+        padding: 9px 12px;
+        background-color: #fff;
+        -webkit-appearance: none;
+        border-radius: 2px;
+        font-size: 18px;
+        line-height: 1.44;
+        margin-top: 15px;
+        label {
+          float: left;
+          width: 60px;
+          margin-top: 10px;
+        }
+        input {
+          width: calc(100% - 60px);
+          border: none;
+          height: 46px;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .search-button {
+        margin-top: 10px;
+        border: none;
+        background: #e60000;
+        color: #fff;
+        width: 100%;
+        height: 44px;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .suggestions-container {
+      .suggestions {
+        cursor: pointer;
+        width: 100%;
+        float: left;
+        height: 64px;
+        border: 1px solid #c8c8c8;
+        padding: 9px 12px;
+        background-color: #fff;
+        -webkit-appearance: none;
+        border-radius: 2px;
+        font-size: 18px;
+        line-height: 1.44;
+        margin-top: 15px;
+        .suggestions-title,
+        .suggestions-icons {
+          width: 100%;
+        }
+        .suggestions-icons {
+          span {
+            color: #000;
+            margin-right: 15px;
+            .ng-fa-icon {
+              color: #e60000;
+              margin-right: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.info-wrapper {
+  float: left;
+  width: 46%;
+  padding: 2%;
+  margin-top: 42px;
+  .item-box {
+    cursor: pointer;
+    width: 96%;
+    float: left;
+    height: 64px;
+    border: 1px solid #c8c8c8;
+    padding: 9px 12px;
+    background-color: #fff;
+    -webkit-appearance: none;
+    border-radius: 2px;
+    font-size: 18px;
+    line-height: 1.44;
+    margin-top: 15px;
+    .info-icon {
+      float: right;
+      color: #e60000;
+    }
+  }
+}

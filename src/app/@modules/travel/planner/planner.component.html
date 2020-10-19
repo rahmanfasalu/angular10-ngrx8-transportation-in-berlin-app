@@ -1,0 +1,102 @@
+<div>
+  <section class="travel-planner-wrapper">
+    <section class="travel-planner">
+      <h1 class="planner-title">Where do you want to go?</h1>
+      <div class="planner-wrapper">
+        <div class="planner-input-wrapper">
+          <label for="origin_destination_from" class="InputLabel"> From </label>
+          <input
+            type="text"
+            placeholder="Enter Stop Name"
+            [(ngModel)]="search.fromStop"
+            (ngModelChange)="onSearchChange($event, 'fromStop')"
+            (focus)="onFocusEvent()"
+          />
+        </div>
+        <div class="planner-input-wrapper">
+          <label for="origin_destination_from" class="InputLabel"> To </label>
+          <input
+            type="text"
+            placeholder="Enter Stop Name"
+            [(ngModel)]="search.toStop"
+            (ngModelChange)="onSearchChange($event, 'toStop')"
+            (focus)="onFocusEvent()"
+          />
+        </div>
+
+        <button type="button" class="search-button" (click)="searchRouts()">
+          Search
+        </button>
+        <label for="checkbox" class="fav-save">
+          Save to favourites:
+          <input
+            type="checkbox"
+            [checked]="saveToFavourite"
+            name="checkbox"
+            (change)="saveToFavourite = !saveToFavourite"
+          />
+        </label>
+      </div>
+
+      <div class="suggestions-container" *ngFor="let stp of stops">
+        <div class="suggestions" (click)="selectStop($event, stp)">
+          <div class="suggestions-title">{{ stp.name }}</div>
+          <div class="suggestions-icons">
+            <span *ngIf="stp.products.bus">
+              <fa-icon [icon]="faBus"></fa-icon>bus
+            </span>
+            <span *ngIf="stp.products.subway">
+              <fa-icon [icon]="faSubway"></fa-icon>subway
+            </span>
+            <span *ngIf="stp.products.ferry">
+              <fa-icon [icon]="faShip"></fa-icon>ferry
+            </span>
+            <span *ngIf="stp.products.tram">
+              <fa-icon [icon]="faTram"></fa-icon>tram
+            </span>
+            <span *ngIf="stp.products.express">
+              <fa-icon [icon]="faShippingFast"></fa-icon>express
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="showFavList">
+        <div class="suggestions-container" *ngFor="let fav of favouriteLists">
+          <div class="suggestions">
+            <div class="suggestions-title" (click)="chooseThisRoute(fav)">
+              <span>from</span> {{ fav?.from?.name }}
+            </div>
+            <div class="suggestions-title">
+              <span>to</span> {{ fav?.to?.name }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="info-wrapper">
+    <div class="info-container" *ngFor="let journey of journeys">
+      <div
+        *ngFor="let leg of journey.legs"
+        (click)="gotoDetails($event, leg.origin?.id)"
+      >
+        <div class="info-legs item-box" *ngIf="leg.line">
+          <div class="info-title">
+            <span>from: </span> {{ leg.origin?.name }}
+            <span *ngIf="leg.line?.mode == 'bus'" class="info-icon">
+              <fa-icon [icon]="faBus"></fa-icon> bus
+            </span>
+            <span *ngIf="leg.line?.mode == 'train'" class="info-icon">
+              <fa-icon [icon]="faSubway"></fa-icon> train
+            </span>
+          </div>
+          <div class="arrived-at">
+            <fa-icon [icon]="faClock"></fa-icon> {{ getTime(leg.arrival) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

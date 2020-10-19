@@ -1,0 +1,23 @@
+<div class="details-wrapper">
+  <h1 class="details-title">Departure from {{ stopName }}</h1>
+  <div class="info-container" *ngFor="let departure of departureDetails">
+    <div class="info-data">
+      <div class="title">
+        <div class="name"><span>to:</span> {{ departure.direction }}</div>
+        <span *ngIf="departure?.line.mode == 'bus'" class="info-icon">
+          <span class="line-name">{{ departure?.line?.name }}</span>
+          <fa-icon [icon]="faBus"></fa-icon>
+          bus
+        </span>
+        <span *ngIf="departure?.line.mode == 'train'" class="info-icon">
+          <fa-icon [icon]="faSubway"></fa-icon>
+          <span class="line-name">{{ departure?.line.name }}</span> train
+        </span>
+      </div>
+      <div class="time">
+        <fa-icon [icon]="faClock"></fa-icon>
+        {{ getTime(departure.plannedWhen) }}
+      </div>
+    </div>
+  </div>
+</div>
